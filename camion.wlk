@@ -38,14 +38,19 @@ object camion {
 		return cosas.any({cosa => cosa.peso() == peso})
 	}
 	
-	method hayUnaCosaConNivelDePeligrosidad(nivel){
+	method unaCosaConNivelDePeligrosidad(nivel){
 		return if(cosas.any({cosa => cosa.nivelPeligrosidad() == nivel})){
-					cosas.filter({cosa => cosa.nivelPeligrosidad() == nivel})
+					cosas.filter({cosa => cosa.nivelPeligrosidad() == nivel}).first()
 				}
 				else{
 					self.error("No hay ninguna cosa con ese nivel de peligrosidad")
 				}
 		}		
 
-	
+	method cosasQueSuperanNivelDePeligrosidad(nivel){
+		return cosas.filter({cosa => cosa.nivelPeligrosidad() > nivel})
+	}
+	method cosasMasPeligrosasQue(unaCosa){
+		return self.cosasQueSuperanNivelDePeligrosidad(unaCosa.nivelPeligrosidad())
+	}
 }
