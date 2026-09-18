@@ -21,4 +21,13 @@ object camion {
 			self.error("La cosa no se encuentra cargada")
 		} 
 	}
+	/*method peso(){
+		var pesoTotal = 0
+		cosas.forEach({cosa => pesoTotal += cosa.peso()})
+		return pesoTotal
+	}*/
+
+	method cadaUnaDeLasCosasTienePesoPar(){
+		return cosas.all({cosa => cosa.peso() % 2 == 0})
+	}
 }
