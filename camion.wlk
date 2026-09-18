@@ -21,12 +21,15 @@ object camion {
 			self.error("La cosa no se encuentra cargada")
 		} 
 	}
-	/*method peso(){
+	method peso(){
 		var pesoTotal = 0
 		cosas.forEach({cosa => pesoTotal += cosa.peso()})
-		return pesoTotal
-	}*/
+		return pesoTotal + 1000 //1000 peso de camion vacio 
+	}
 
+	method estaExcedidoDePeso(){
+		return self.peso() > 2500
+	}
 	method cadaUnaDeLasCosasTienePesoPar(){
 		return cosas.all({cosa => cosa.peso() % 2 == 0})
 	}
@@ -35,4 +38,7 @@ object camion {
 		return cosas.any({cosa => cosa.peso() == peso})
 	}
 	
+	method hayUnaCosaConNivelDePeligrosidad(nivel){
+		return cosas.any({cosa => cosa.nivelPeligrosidad() == nivel})
+	}
 }
