@@ -53,4 +53,6 @@ object camion {
 	method cosasMasPeligrosasQue(unaCosa){
 		return self.cosasQueSuperanNivelDePeligrosidad(unaCosa.nivelPeligrosidad())
 	}
+
+	
 }

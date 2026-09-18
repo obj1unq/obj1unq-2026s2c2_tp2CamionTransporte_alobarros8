@@ -39,8 +39,8 @@ object paqueteDeLadrillos{
 
 object bateriaAntiaerea{
 	var tieneMisiles = false
-	method tieneMisiles(_tieneMisiles) {
-		tieneMisiles = _tieneMisiles
+	method cargarMisiles() {
+		tieneMisiles = true
   	}
 	method tieneMisiles() { return tieneMisiles }
 	method peso(){
@@ -62,3 +62,4 @@ object residuosRadioactivos {
   method peso() { return peso }
   method nivelPeligrosidad() { return 200 }
 }
+
