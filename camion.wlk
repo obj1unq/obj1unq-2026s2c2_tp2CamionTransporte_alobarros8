@@ -54,5 +54,7 @@ object camion {
 		return self.cosasQueSuperanNivelDePeligrosidad(unaCosa.nivelPeligrosidad())
 	}
 
-	
+	method puedeCirularEnRutaConNivel(nivel){
+		return !self.estaExcedidoDePeso() && self.cosasQueSuperanNivelDePeligrosidad(nivel).size() == 0
+	}
 }

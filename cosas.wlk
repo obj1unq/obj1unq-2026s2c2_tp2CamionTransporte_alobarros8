@@ -12,18 +12,24 @@ object arenaYGranel {
 	method nivelPeligrosidad() { return 1 }
 }
 
-object bumbleblee {
-	var modo = "robot"
+object bumblebee {
+	var modo = robot
 	method modo(_modo) {
 		modo = _modo
 	}
 	method modo() { return modo }
 	method peso() { return 800 }
 	method nivelPeligrosidad() { 
-		return if (modo == "robot") {30}	
-				else {15}
-		 }
-
+	return modo.nivelPeligrosidad()
+	}
+}
+object auto{
+	
+	method nivelPeligrosidad() { return 15 }
+}
+object robot{
+	
+	method nivelPeligrosidad() { return 30}
 }
 
 object paqueteDeLadrillos{
