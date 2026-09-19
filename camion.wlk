@@ -9,7 +9,7 @@ object camion {
 	}
 	method validarCargar(unaCosa){
 		return if (cosas.contains(unaCosa)){
-			self.error("La cosa ya se encuentra cargada")
+			self.error("La unaCosa ya se encuentra cargada")
 		} 
 	}
 	method descargar(unaCosa){
@@ -18,12 +18,12 @@ object camion {
 	}
 	method validarDescargar(unaCosa){
 		return if (!cosas.contains(unaCosa)){
-			self.error("La cosa no se encuentra cargada")
+			self.error("La unaCosa no se encuentra cargada")
 		} 
 	}
 	method peso(){
 		var pesoTotal = 0
-		cosas.forEach({cosa => pesoTotal += cosa.peso()})
+		cosas.forEach({unaCosa => pesoTotal += unaCosa.peso()})
 		return pesoTotal + 1000 //1000 peso de camion vacio 
 	}
 
@@ -31,24 +31,24 @@ object camion {
 		return self.peso() > 2500
 	}
 	method cadaUnaDeLasCosasTienePesoPar(){
-		return cosas.all({cosa => cosa.peso() % 2 == 0})
+		return cosas.all({unaCosa => unaCosa.peso() % 2 == 0})
 	}
 
 	method hayUnaCosaQuePesa(peso){
-		return cosas.any({cosa => cosa.peso() == peso})
+		return cosas.any({unaCosa => unaCosa.peso() == peso})
 	}
 	
 	method unaCosaConNivelDePeligrosidad(nivel){
-		return if(cosas.any({cosa => cosa.nivelPeligrosidad() == nivel})){
-					cosas.filter({cosa => cosa.nivelPeligrosidad() == nivel}).asList().first()
+		return if(cosas.any({unaCosa => unaCosa.nivelPeligrosidad() == nivel})){
+					cosas.filter({unaCosa => unaCosa.nivelPeligrosidad() == nivel}).asList().first()
 				}
 				else{
-					self.error("No hay ninguna cosa con ese nivel de peligrosidad")
+					self.error("No hay ninguna unaCosa con ese nivel de peligrosidad")
 				}
 		}		
 
 	method cosasQueSuperanNivelDePeligrosidad(nivel){
-		return cosas.filter({cosa => cosa.nivelPeligrosidad() > nivel})
+		return cosas.filter({unaCosa => unaCosa.nivelPeligrosidad() > nivel})
 	}
 	method cosasMasPeligrosasQue(unaCosa){
 		return self.cosasQueSuperanNivelDePeligrosidad(unaCosa.nivelPeligrosidad())
@@ -57,4 +57,8 @@ object camion {
 	method puedeCirularEnRutaConNivel(nivel){
 		return !self.estaExcedidoDePeso() && self.cosasQueSuperanNivelDePeligrosidad(nivel).size() == 0
 	}
+
+	method tieneAlgoQuePesaEntre(min, max) { 
+		return cosas.any({ unaCosa => unaCosa.peso().between(min, max) }) 
+		}
 }

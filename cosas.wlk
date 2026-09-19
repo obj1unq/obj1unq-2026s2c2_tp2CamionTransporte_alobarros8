@@ -73,18 +73,18 @@ object contenedorPortuario {
 	const cosas = [] 
 
 	method cosas() = cosas 
-	method agregar(cosa) {
-		cosas.add(cosa) 
+	method agregar(unaCosa) {
+		cosas.add(unaCosa) 
 	}
-	method quitar(cosa) { 
-		cosas.remove(cosa) 
+	method quitar(unaCosa) { 
+		cosas.remove(unaCosa) 
 	} 
 	method peso() { 
-		return 100 + cosas.sum({ cosa => cosa.peso() }) 
+		return 100 + cosas.sum({ unaCosa => unaCosa.peso() }) 
 	} 
 	method nivelPeligrosidad() { 
 		return if (cosas.isEmpty()) {0} else { 
-			 		cosas.max({ cosa => cosa.nivelPeligrosidad() }).nivelPeligrosidad()
+			 		cosas.max({ unaCosa => unaCosa.nivelPeligrosidad() }).nivelPeligrosidad()
 			 			} 
 	} 	
 }
@@ -92,7 +92,7 @@ object contenedorPortuario {
 object embalajeDeSeguridad { 
 	var cosaEnvuelta = null
 	method cosaEnvuelta() = cosaEnvuelta 
-	method envolver(cosa) { cosaEnvuelta = cosa } 
+	method envolver(unaCosa) { cosaEnvuelta = unaCosa } 
 	method cosaEnvuelta(_cosa) { cosaEnvuelta = _cosa }
 	method peso() {
 		 return if (cosaEnvuelta != null) cosaEnvuelta.peso() else 0 

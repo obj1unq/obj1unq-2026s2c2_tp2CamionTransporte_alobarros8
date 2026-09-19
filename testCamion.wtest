@@ -94,6 +94,15 @@ describe "Pruebas del Camión de Transporte" {
         assert.equals(5, embalajeDeSeguridad.nivelPeligrosidad())
     }
 
+    test "2.9 tiene algo que pesa entre"{
+        paqueteDeLadrillos.cantidadDeLadrillos(300)
+        camion.cargar(bumblebee)
+        camion.cargar(paqueteDeLadrillos)
+        assert.that(camion.tieneAlgoQuePesaEntre(5, 700))
+        assert.that(camion.tieneAlgoQuePesaEntre(5, 1000))
+        assert.notThat(camion.tieneAlgoQuePesaEntre(900, 1000))
+
+    }
 }
 
 
