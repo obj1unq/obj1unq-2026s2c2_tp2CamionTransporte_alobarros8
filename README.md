@@ -1,4 +1,4 @@
-# Camión de transporte
+bat# Camión de transporte
 
 Una empresa de transporte quiere administrar mejor las cargas que lleva un camión, y para eso requiere un sistema que le permita planificar qué cosas puede llevar el camión considerando dos aspectos: no sobrepasar su capacidad y que el destino sea capaz de recibir la carga. 
 Por otro lado, las cosas que transporta tienen un nivel de peligrosidad, que es usado para impedir que ciertas cosas demasiado peligrosas circulen en determinadas rutas.
