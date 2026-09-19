@@ -61,4 +61,12 @@ object camion {
 	method tieneAlgoQuePesaEntre(min, max) { 
 		return cosas.any({ unaCosa => unaCosa.peso().between(min, max) }) 
 		}
+
+	method cosaMasPesada() {
+		 return if(cosas.isEmpty()) {
+			self.error("No hay ninguna cosa cargada")
+		 } else {
+			cosas.max({ cosa => cosa.peso() })
+		 }
+		 }
 }
