@@ -114,6 +114,13 @@ describe "Pruebas del Camión de Transporte" {
         assert.throwsException({camion.cosaMasPesada()})
 
     }
+
+    test "2.11 Pesos de cosas"{
+        paqueteDeLadrillos.cantidadDeLadrillos(300)
+        camion.cargar(bumblebee)
+        camion.cargar(paqueteDeLadrillos)
+        assert.equals(#{800, 600}, camion.pesosDeCosas().asSet())
+    }
 }
 
 

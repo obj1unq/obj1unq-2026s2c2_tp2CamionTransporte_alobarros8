@@ -68,5 +68,9 @@ object camion {
 		 } else {
 			cosas.max({ cosa => cosa.peso() })
 		 }
-		 }
+	}
+
+	method pesosDeCosas() {
+		return cosas.map({unaCosa => unaCosa.peso()})
+	}
 }
