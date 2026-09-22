@@ -121,6 +121,17 @@ describe "Pruebas del Camión de Transporte" {
         camion.cargar(paqueteDeLadrillos)
         assert.equals(#{800, 600}, camion.pesosDeCosas().asSet())
     }
+    test "2.12 bultos"{
+        camion.cargar(contenedorPortuario)
+        contenedorPortuario.agregar(knightRider)
+        contenedorPortuario.agregar(bumblebee)
+        embalajeDeSeguridad.envolver(residuosRadioactivos)
+        camion.cargar(arenaYGranel)
+        paqueteDeLadrillos.cantidadDeLadrillos(50)
+        camion.cargar(paqueteDeLadrillos)
+        bateriaAntiaerea.descargarMisiles()
+        assert.equals(9, camion.bultos())
+    }
 }
 
 
